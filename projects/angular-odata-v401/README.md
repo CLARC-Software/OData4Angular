@@ -1,10 +1,12 @@
-# AngularOdataV401
+# @mgrcto/AngularOdataV401
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-Originally a fork of angular-odata-es5 https://github.com/StefH/angular-odata-es5 with changes to accommodate OData Version 4.01, which changed some Http Header Fields. https://github.com/mgrcto/angular-odata-v4_01
+Originally a [fork](https://github.com/mgrcto/angular-odata-v4_01) of [angular-odata-es5](https://github.com/StefH/angular-odata-es5) with changes to accommodate OData Version 4.01, which changed some Http Header Fields.
 
-Now an angular library created with the cli. Since the fork on which the original library was build on https://github.com/mattlewis92/generator-angular-library could not be updated to run as an ivy package.
+[GitHub Repository](https://github.com/mgrcto/lib-workspace) with Demo and Tests. 
+
+Now an angular library created with the cli. Since the [fork](https://github.com/mattlewis92/generator-angular-library) on which the original library was build on could not be updated to run as an ivy package.
 
 ## Table of contents
 
@@ -19,5 +21,5 @@ The goal is to create a fluent API for querying, creating, updating and deleting
 
 Install through npm:
 ```
-npm install --save angular-odata-v401
+npm install --save @mgrcto/angular-odata-v401
 ```

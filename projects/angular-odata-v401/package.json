@@ -1,6 +1,18 @@
 {
   "name": "@mgrcto/angular-odata-v401",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Odata Library for Angular made with Angular CLI",
+  "keywords": ["Odata","4.01","Angular","Library"],
+  "homepage": "https://github.com/mgrcto/lib-workspace",
+  "bugs": "https://github.com/mgrcto/lib-workspace/issues",
+  "author": {
+    "name": "mgrcto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgrcto/lib-workspace/tree/master/projects/angular-odata-v401"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0",

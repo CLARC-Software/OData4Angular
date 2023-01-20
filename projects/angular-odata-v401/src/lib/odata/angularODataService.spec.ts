@@ -564,4 +564,23 @@ describe('ODataService', () => {
         expect(http.get).toHaveBeenCalledWith(`http://localhost/odata/Employees(e3527e00-6166-46bb-831f-600fe84cab79)/Name`, jasmine.any(Object));
 
     }));
+
+    it('getNestedEntityService',inject([HttpClient, ODataServiceFactory], (http: HttpClient, factory: ODataServiceFactory) => {
+        // Assign
+        const service = factory.CreateService<IEmployee>('Employees');
+
+        spyOn(http, 'get').and.returnValue(new Observable<Response>());
+
+        const employId = '4711';
+        
+        // Act
+        const nestedService = service.getNestedEntityService<string>(employId,'Name');
+
+        const result = nestedService.Query().Exec();
+
+        // Assert
+        expect(result).not.toBeNull();
+        expect(http.get).toHaveBeenCalledWith(`http://localhost/odata/Employees('4711')/Name`, jasmine.any(Object));
+
+    }))
 });

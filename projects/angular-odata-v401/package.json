@@ -1,6 +1,6 @@
 {
   "name": "@mgrcto/angular-odata-v401",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Odata Library for Angular made with Angular CLI",
   "keywords": ["Odata","4.01","Angular","Library"],
   "homepage": "https://github.com/mgrcto/lib-workspace",

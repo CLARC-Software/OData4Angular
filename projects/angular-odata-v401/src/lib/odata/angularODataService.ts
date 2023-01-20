@@ -69,6 +69,11 @@ export class ODataService<T> {
         return this._http.get(`${this._entitiesUri}/${functionName}`, this.config.defaultRequestOptions).pipe(map(resp => resp));
     }
 
+    public getNestedEntityService<U>(key:string,typeName:string):ODataService<U>{
+        let nestedTypeName = `${this.config.getEntityPath(key,this._typeName)}/${typeName}`;
+        return new ODataService<U>(nestedTypeName,this._http,this.config);
+    }
+
     public ItemProperty<T = any>(key: string, propertyName: string): Observable<T | null> {
         return this._http.get<T>(`${this.getEntityUri(key)}/${propertyName}`, this.config.defaultRequestOptions)
             .pipe(map(r => r.body));

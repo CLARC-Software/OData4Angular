@@ -75,6 +75,10 @@ export class ODataConfiguration {
         return `${this.getEntitiesUri(typeName)}(${ODataUtils.quoteValue(key)})`;
     }
 
+    public getEntityPath(key:any, typeName:string):string{
+        return `${this.sanitizeTypeName(typeName)}(${ODataUtils.quoteValue(key)})`;
+    }
+
     public handleError(err: any, caught: any): void {
         console.warn('OData error: ', err, caught);
     }

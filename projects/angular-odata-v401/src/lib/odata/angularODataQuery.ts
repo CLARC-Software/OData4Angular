@@ -211,7 +211,7 @@ export class ODataQuery<T> extends ODataOperation<T> {
                   if (this.config.handleError) {
                       this.config.handleError(err, caught);
                   }
-                  return throwError(()=>new Error(err));
+                  return throwError(()=>err);
               })
           );
     }

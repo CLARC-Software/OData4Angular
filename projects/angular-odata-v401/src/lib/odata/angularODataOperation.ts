@@ -85,7 +85,7 @@ export abstract class ODataOperation<T> {
                     if (this.config.handleError) {
                         this.config.handleError(err, caught);
                     }
-                    return throwError(()=>err);
+                    return throwError(err);
                 })
             );
     }

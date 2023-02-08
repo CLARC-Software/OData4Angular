@@ -1,7 +1,7 @@
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 
 import { ODataConfiguration } from './angularODataConfiguration';
 import { ODataExecReturnType } from './angularODataEnums';
@@ -207,11 +207,11 @@ export class ODataQuery<T> extends ODataOperation<T> {
       return this.http.get<IODataResponseModel<T>>(url, requestOptions)
           .pipe(
               map(res => this.extractArrayDataWithMetadata(res, this.config)),
-              catchError((err: any, caught: Observable<ODataMetadataResult<T>>) => {
+              catchError((err: HttpErrorResponse, caught: Observable<ODataMetadataResult<T>>) => {
                   if (this.config.handleError) {
                       this.config.handleError(err, caught);
                   }
-                  return throwError(()=>err);
+                  return throwError(err);
               })
           );
     }
@@ -231,7 +231,7 @@ export class ODataQuery<T> extends ODataOperation<T> {
                     if (this.config.handleError) {
                         this.config.handleError(err, caught);
                     }
-                    return throwError(()=>new Error(err));
+                    return throwError(err);
                 })
             );
     }

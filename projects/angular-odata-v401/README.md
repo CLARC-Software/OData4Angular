@@ -4,7 +4,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 Originally a [fork](https://github.com/mgrcto/angular-odata-v4_01) of [angular-odata-es5](https://github.com/StefH/angular-odata-es5) with changes to accommodate OData Version 4.01, which changed some Http Header Fields.
 
-[GitHub Repository](https://github.com/mgrcto/lib-workspace) with Demo and Tests. 
+[GitHub Repository](https://github.com/CLARC-Software/OData4Angular) with Demo and Tests. 
 
 Now an angular library created with the cli. Since the [fork](https://github.com/mattlewis92/generator-angular-library) on which the original library was build on could not be updated to run as an ivy package.
 

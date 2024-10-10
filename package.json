@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "buildLibProd": "ng build angular-odata-v401 --configuration production"
   },
   "private": true,
   "dependencies": {

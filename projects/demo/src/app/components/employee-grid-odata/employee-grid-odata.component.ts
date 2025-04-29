@@ -49,6 +49,7 @@ import { NorthwindODataConfigurationFactory } from './NorthwindODataConfiguratio
 
     
   `,
+  standalone: false,
   providers: [{ provide: ODataConfiguration, useFactory: NorthwindODataConfigurationFactory }, ODataServiceFactory],
   styles: [
   ]

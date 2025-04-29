@@ -1,6 +1,6 @@
 {
   "name": "@mgrcto/angular-odata-v401",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Odata Library for Angular made with Angular CLI",
   "keywords": ["Odata","4.01","Angular","Library"],
   "homepage": "https://github.com/CLARC-Software/OData4Angular",
@@ -14,8 +14,8 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^15.2.1",
-    "@angular/core": "^15.2.1"
+    "@angular/common": "15 - 19",
+    "@angular/core": "15 - 19"
   },
   "dependencies": {
     "tslib": "^2.3.0"

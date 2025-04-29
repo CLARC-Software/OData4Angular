@@ -1,12 +1,12 @@
-import { HttpResponse } from '@angular/common/http';
+import { HttpResponse, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { AngularOdataV401Module } from '../angular-odata-v401.module';
 import { ODataConfiguration, ODataServiceFactory } from '.';
 import { IEmployee } from './helpers/employee';
 
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpResponseEmployeeBuilder } from './helpers/httpResponseEmployeeBuilder';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ODataConfiguration', () => {
     beforeEach(() => {
@@ -14,7 +14,8 @@ describe('ODataConfiguration', () => {
             providers: [
                 ODataConfiguration,
                 ODataServiceFactory,
-                HttpClientTestingModule
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting()
             ],
             imports: [
                 AngularOdataV401Module.forRoot()

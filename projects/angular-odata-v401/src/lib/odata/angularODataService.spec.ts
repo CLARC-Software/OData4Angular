@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 
-import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpParams, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { inject, TestBed } from '@angular/core/testing';
 
 import { AngularOdataV401Module } from '../angular-odata-v401.module';
@@ -14,16 +14,15 @@ import { HttpHeadersMatcher } from './helpers/httpHeadersMatcher';
 describe('ODataService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [
-                ODataConfiguration,
-                ODataServiceFactory,
-                HttpClient
-            ],
-            imports: [
-                AngularOdataV401Module.forRoot(),
-                HttpClientTestingModule
-            ]
-        });
+    imports: [AngularOdataV401Module.forRoot()],
+    providers: [
+        ODataConfiguration,
+        ODataServiceFactory,
+        HttpClient,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     });
 
     it('Construct via injection', inject([ODataServiceFactory], (factory: ODataServiceFactory) => {

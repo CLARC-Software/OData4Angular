@@ -1,7 +1,7 @@
 import { Observable, of } from 'rxjs';
 
-import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { inject, TestBed } from '@angular/core/testing';
 
 import { ODataConfiguration, ODataOperation, ODataServiceFactory } from '.';
@@ -21,16 +21,15 @@ export class ODataOperationTest extends ODataOperation<IEmployee> {
 describe('ODataOperation', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [
-                HttpClient,
-                ODataConfiguration,
-                ODataServiceFactory
-            ],
-            imports: [
-                AngularOdataV401Module.forRoot(),
-                HttpClientTestingModule
-            ]
-        });
+    imports: [AngularOdataV401Module.forRoot()],
+    providers: [
+        HttpClient,
+        ODataConfiguration,
+        ODataServiceFactory,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     });
 
     it('Expand(string)`1', inject([HttpClient, ODataConfiguration], (http: HttpClient, config: ODataConfiguration) => {
